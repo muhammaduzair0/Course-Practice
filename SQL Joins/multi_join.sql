@@ -11,13 +11,13 @@ For each order, display:
 
 SELECT 
     o.OrderID,
-    c.FirstName,
-    c.LastName,
+    c.FirstName AS CustomerFirstName,
+    c.LastName AS CustomerLastName,
     o.Sales,
-    p.Product,
+    p.Product AS ProductName,
     p.Price,
-    e.FirstName,
-    e.LastName
+    e.FirstName AS EmployeeFirstName,
+    e.LastName AS  EmployeeLastName
 FROM Sales.Orders AS o
 LEFT JOIN Sales.Customers AS c
 ON o.OrderID = c.CustomerID
