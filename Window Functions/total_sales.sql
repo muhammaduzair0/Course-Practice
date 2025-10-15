@@ -7,3 +7,12 @@ SELECT
 FROM Sales.Orders
 GROUP BY ProductID
 
+/* Find the total sales for each product
+    Additionally provide details such orderID, Order Date */
+
+SELECT 
+    OrderID,
+    OrderDate,
+    ProductID,
+    SUM(Sales) OVER(PARTITION BY ProductID) TotalSalesByProducts
+FROM Sales.Orders
