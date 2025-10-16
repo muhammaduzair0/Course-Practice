@@ -7,8 +7,10 @@ SELECT
 FROM Sales.Orders
 GROUP BY ProductID
 
-/* Find the total sales for each product
-    Additionally provide details such orderID, Order Date */
+-- Find the total sales for all orders
+-- Find the total sales for each product
+-- Find the total sales for each combination of product and order status
+-- Additionally provide details such orderID, Order Date 
 
 SELECT 
     OrderID,
