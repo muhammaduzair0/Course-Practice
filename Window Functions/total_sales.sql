@@ -63,3 +63,14 @@ Sales,
 SUM(Sales) OVER(PARTITION BY OrderStatus ORDER BY OrderDate ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS TotalSales -- Default Frame
 FROM Sales.Orders
 
+-- Find the total sales for each order status, Only for two product 101 and 102
+
+SELECT
+ProductID,
+OrderID,
+OrderDate,
+OrderStatus,
+Sales,
+SUM(Sales) OVER(PARTITION BY OrderStatus)
+FROM Sales.Orders
+WHERE ProductID IN(101, 102)
