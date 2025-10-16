@@ -16,5 +16,10 @@ SELECT
     OrderID,
     OrderDate,
     ProductID,
-    SUM(Sales) OVER(PARTITION BY ProductID) TotalSalesByProducts
+    OrderStatus,
+    Sales,
+    SUM(Sales) Over() TotalSales,
+    SUM(Sales) OVER(PARTITION BY ProductID) SalesByProducts,
+    SUM(Sales) OVER(PARTITION BY ProductID, OrderStatus) TotalSalesByProductAndStatus
 FROM Sales.Orders
+
