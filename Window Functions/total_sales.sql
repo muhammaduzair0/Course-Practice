@@ -52,3 +52,14 @@ Sales,
 SUM(Sales) OVER(PARTITION BY OrderStatus ORDER BY OrderDate ROWS 2 PRECEDING) AS TotalSales -- Shortcut only for preceding
 FROM Sales.Orders
 
+-- Default Frame even IF we don't mention and just use Order By Clause
+
+SELECT
+OrderID,
+OrderDate,
+OrderStatus,
+Sales,
+-- SUM(Sales) OVER(PARTITION BY OrderStatus ORDER BY OrderDate) AS TotalSales 
+SUM(Sales) OVER(PARTITION BY OrderStatus ORDER BY OrderDate ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS TotalSales -- Default Frame
+FROM Sales.Orders
+
