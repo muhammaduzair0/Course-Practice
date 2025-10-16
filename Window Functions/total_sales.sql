@@ -23,3 +23,12 @@ SELECT
     SUM(Sales) OVER(PARTITION BY ProductID, OrderStatus) TotalSalesByProductAndStatus
 FROM Sales.Orders
 
+-- Rank each order based on their sales from highest to lowest
+-- Additionally provide details such orderID, Order Date.
+
+SELECT 
+    OrderID,
+    OrderDate,
+    Sales,
+    RANK() OVER(ORDER BY Sales DESC) RankSales
+FROM Sales.Orders
