@@ -25,3 +25,18 @@ SELECT
     AVG(Sales) Over(PARTITION BY ProductID) AvgSalesByProducts
 FROM Sales.Orders
 
+-- Find the average scores of customers
+-- Additionally provide details such CustomerID and LastName
+
+SELECT *
+FROM Sales.Customers
+
+SELECT
+    CustomerID,
+    LastName,
+    Score,
+    COALESCE(Score,0) CustomerScore,
+    AVG(Score) OVER() AvgScore,
+    AVG(COALESCE(Score,0)) OVER() AvgScoreWithoutNull
+FROM Sales.Customers
+
