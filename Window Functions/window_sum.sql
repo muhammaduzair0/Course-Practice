@@ -9,3 +9,17 @@ SELECT
     SUM(Sales) OVER(PARTITION BY ProductID) TotalSales
 FROM Sales.Orders
 
+/* Find the total sales across all orders
+and the total sales for each product */
+-- Additionally, provide details such as OrderID, and Order Date
+
+SELECT
+    OrderID,
+    OrderDate,
+    ProductID,
+    Sales,
+    SUM(Sales) OVER() TotalSales,
+    SUM(Sales) OVER(PARTITION BY ProductID) SalesByProduct
+FROM Sales.Orders
+
+
