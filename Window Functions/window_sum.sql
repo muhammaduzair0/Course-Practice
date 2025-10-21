@@ -23,3 +23,13 @@ SELECT
 FROM Sales.Orders
 
 
+-- Find the percentage contribution of each product's sales to the total sales.
+
+SELECT
+    OrderID,
+    OrderDate,
+    ProductID,
+    Sales,
+    SUM(Sales) OVER() TotalSales,
+    ROUND(CAST(Sales AS FLOAT) / SUM(Sales) OVER() * 100,2) PercentageOfTotal
+FROM Sales.Orders
