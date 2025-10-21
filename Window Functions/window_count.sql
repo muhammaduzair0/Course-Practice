@@ -19,3 +19,19 @@ SELECT
     COUNT(*) OVER(PARTITION BY OrderID) CheckPK
 FROM Sales.Orders
 
+-- Check whether the table 'Orders' contains any duplicate rows in OrderArchive
+
+SELECT
+    OrderID,
+    COUNT(*) OVER(PARTITION BY OrderID) CheckPK
+FROM Sales.OrdersArchive
+
+SELECT
+    *
+FROM(
+    SELECT
+        OrderID,
+        COUNT(*) OVER(PARTITION BY OrderID) CheckPK
+    FROM Sales.OrdersArchive
+)t
+WHERE CheckPK > 1
