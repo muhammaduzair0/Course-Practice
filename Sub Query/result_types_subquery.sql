@@ -10,3 +10,9 @@ SELECT
 CustomerID
 FROM Sales.Orders
 
+-- Table Subquery
+
+SELECT
+OrderID,
+OrderDate
+FROM Sales.Orders
