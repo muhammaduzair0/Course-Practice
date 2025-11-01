@@ -44,6 +44,12 @@ SELECT
     c.FirstName,
     c.LastName,
     cts.TotalSales,
+    clo.Last_Order,
+    ccr.CustomerRank AS CustomerRank,
 FROM Sales.Customers c
     LEFT JOIN CTE_TotalSales cts
     ON cts.CustomerID = c.CustomerID
+    LEFT JOIN CTE_Last_Order clo
+    ON clo.CustomerID = c.CustomerID
+    LEFT JOIN CTE_Customer_Rank ccr
+    ON ccr.CustomerID = c.CustomerID
