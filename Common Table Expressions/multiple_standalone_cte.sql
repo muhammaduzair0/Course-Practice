@@ -35,6 +35,18 @@ WITH
         FROM  CTE_TotalSales
     ),
 
+-- Step4: Segment customers based on their total sales. (Nested CTE)
+
+    CTE_Customer_Segment
+    AS
+    (
+    SELECT
+    CustomerID,
+        CASE WHEN TotalSales > 100 THEN 'High'
+            WHEN TotalSales > 50 THEN 'Medium'
+        ELSE 'Low'
+    END CustomerSegments
+    FROM CTE_TotalSales
     )
 
 -- Main Query
