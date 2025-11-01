@@ -58,6 +58,7 @@ SELECT
     cts.TotalSales,
     clo.Last_Order,
     ccr.CustomerRank AS CustomerRank,
+    ccs.CustomerSegments AS CustomerSegments
 FROM Sales.Customers c
     LEFT JOIN CTE_TotalSales cts
     ON cts.CustomerID = c.CustomerID
@@ -65,3 +66,5 @@ FROM Sales.Customers c
     ON clo.CustomerID = c.CustomerID
     LEFT JOIN CTE_Customer_Rank ccr
     ON ccr.CustomerID = c.CustomerID
+    LEFT JOIN CTE_Customer_Segment ccs
+    ON ccs.CustomerID = c.CustomerID
