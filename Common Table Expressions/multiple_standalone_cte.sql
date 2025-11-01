@@ -22,6 +22,19 @@ WITH
         FROM Sales.Orders
         GROUP BY CustomerID
     ),
+
+-- Step3: Rank Customers based on total sales per customer. (Nested CTE)
+
+    CTE_Customer_Rank
+    AS
+    (
+        SELECT
+            CustomerID,
+            TotalSales,
+            RANK() OVER(ORDER BY TotalSales DESC) AS CustomerRank
+        FROM  CTE_TotalSales
+    ),
+
     )
 
 -- Main Query
