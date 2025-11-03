@@ -20,3 +20,13 @@ FROM Series;
 
 -- Show the employee hierarchy by displaying each employee's level within the organization.
 WITH CTE_Emp_Hierarchy AS 
+(
+    -- Anchor Query
+    SELECT
+        EmployeeID,
+        FirstName,
+        ManagerID,
+        1 AS Level
+    From Sales.Employees
+    WHERE ManagerID IS NULL
+    UNION ALL
