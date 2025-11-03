@@ -14,3 +14,7 @@ WITH
             FROM Series
             WHERE MyNumber < 20
     )
+-- Main Query
+SELECT *
+FROM Series;
+
