@@ -40,3 +40,7 @@ WITH CTE_Emp_Hierarchy AS
     INNER JOIN CTE_Emp_Hierarchy ceh
     ON e.ManagerID = ceh.EmployeeID
 )
+
+-- Main Query
+SELECT *
+FROM CTE_Emp_Hierarchy
