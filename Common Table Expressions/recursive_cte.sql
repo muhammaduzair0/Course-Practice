@@ -30,3 +30,13 @@ WITH CTE_Emp_Hierarchy AS
     From Sales.Employees
     WHERE ManagerID IS NULL
     UNION ALL
+    --Recursive Query
+       SELECT
+        e.EmployeeID,
+        e.FirstName,
+        e.ManagerID,
+        Level +1
+    From Sales.Employees AS e
+    INNER JOIN CTE_Emp_Hierarchy ceh
+    ON e.ManagerID = ceh.EmployeeID
+)
