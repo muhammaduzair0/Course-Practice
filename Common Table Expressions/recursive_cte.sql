@@ -18,3 +18,5 @@ WITH
 SELECT *
 FROM Series;
 
+-- Show the employee hierarchy by displaying each employee's level within the organization.
+WITH CTE_Emp_Hierarchy AS 
