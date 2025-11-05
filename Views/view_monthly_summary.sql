@@ -1,3 +1,6 @@
+IF OBJECT_ID('Sales.V_Monthly_Summary', 'V') IS NOT NULL
+  DROP VIEW Sales.V_Monthly_Summary;
+GO
   
 CREATE VIEW Sales.V_Monthly_Summary AS (
   SELECT
