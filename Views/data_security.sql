@@ -21,4 +21,5 @@ CREATE VIEW Sales.V_Order_Details_EU AS (
     ON c.CustomerID = o.CustomerID
     LEFT JOIN Sales.Employees AS e
     ON e.EmployeeID = o.SalesPersonID
+    WHERE c.Country != 'USA'
 )
