@@ -15,3 +15,10 @@ CREATE VIEW Sales.V_Order_Details_EU AS (
     o.Sales,
     o.Quantity
     FROM Sales.Orders AS o
+    LEFT JOIN Sales.Products AS p
+    ON p.ProductID = o.ProductID
+    LEFT JOIN Sales.Customers AS c   
+    ON c.CustomerID = o.CustomerID
+    LEFT JOIN Sales.Employees AS e
+    ON e.EmployeeID = o.SalesPersonID
+)
