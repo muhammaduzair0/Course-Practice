@@ -13,3 +13,6 @@ FROM #Orders
 
 DELETE FROM #Orders
 WHERE OrderStatus = 'Delivered'
+
+SELECT *
+FROM #Orders
