@@ -11,3 +11,5 @@ SELECT
 INTO Sales.OrdersTest
 FROM #Orders
 
+DELETE FROM #Orders
+WHERE OrderStatus = 'Delivered'
