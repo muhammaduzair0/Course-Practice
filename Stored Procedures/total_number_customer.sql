@@ -13,4 +13,14 @@ SELECT
 FROM Sales.Customers
 WHERE Country = @Country;
 
+-- Find the total Nr. Of Orders and Total Sales
+
+SELECT
+COUNT(OrderID) TotalOrders,
+SUM(Sales) TotalSales
+FROM Sales.Orders o
+JOIN Sales.Customers c
+ON c.CustomerID = o.CustomerID
+WHERE Country = @Country;
+
 END
