@@ -27,3 +27,5 @@ END
 
 -- Step 3: Execute the Stored Procedure
 EXEC GetCustomerSummary @Country = 'Germany'
+EXEC GetCustomerSummary;
+
