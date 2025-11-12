@@ -24,3 +24,6 @@ ON c.CustomerID = o.CustomerID
 WHERE Country = @Country;
 
 END
+
+-- Step 3: Execute the Stored Procedure
+EXEC GetCustomerSummary @Country = 'Germany'
