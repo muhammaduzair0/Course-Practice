@@ -11,11 +11,36 @@ ALTER PROCEDURE GetCustomerSummary @Country NVARCHAR(50) = 'USA' -- Default Valu
 AS
 BEGIN
         DECLARE @TotalCustomers INT, @AvgScore FLOAT;
+        -- ==============================
+        -- Step 1: Prepare & Cleanup Data
+        -- ==============================
+        IF EXISTS (SELECT 1 FROM Sales.Customers WHERE Score IS NULL AND Country = @Country)
+        BEGIN
+            PRINT('Update NULL Scores to 0');
+            UPDATE Sales.Customers
+            SET Score = 0
+            WHERE Score IS NULL AND Country = @Country;
+        END
 
+        ELSE
+        BEGIN
+            PRINT('NO NULL Scores found')
+        END;
+
+        -- ==================================
+        -- Step 2: Generating Summary Reports
+        -- ==================================
+        -- Calculate Total Customers and Average Score for specific Country
+        SELECT
             @TotalCustomers = COUNT(*),
             @AvgScore = AVG(Score)
+        FROM Sales.Customers
+        WHERE Country = @Country;
+
+
         PRINT 'Total Customers from ' +  @Country + ':' + CAST(@TotalCustomers AS NVARCHAR);
         PRINT 'Average Score from ' +  @Country + ':' + CAST(@AvgScore AS NVARCHAR);
+
 END
 
 -- Step 3: Execute the Stored Procedure
