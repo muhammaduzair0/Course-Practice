@@ -10,7 +10,12 @@
 ALTER PROCEDURE GetCustomerSummary @Country NVARCHAR(50) = 'USA' -- Default Value
 AS
 BEGIN
+        DECLARE @TotalCustomers INT, @AvgScore FLOAT;
 
+            @TotalCustomers = COUNT(*),
+            @AvgScore = AVG(Score)
+        PRINT 'Total Customers from ' +  @Country + ':' + CAST(@TotalCustomers AS NVARCHAR);
+        PRINT 'Average Score from ' +  @Country + ':' + CAST(@AvgScore AS NVARCHAR);
 END
 
 -- Step 3: Execute the Stored Procedure
