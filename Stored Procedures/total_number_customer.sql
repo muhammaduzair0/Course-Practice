@@ -10,6 +10,7 @@
 ALTER PROCEDURE GetCustomerSummary @Country NVARCHAR(50) = 'USA' -- Default Value
 AS
 BEGIN
+    BEGIN TRY
         DECLARE @TotalCustomers INT, @AvgScore FLOAT;
         -- ==============================
         -- Step 1: Prepare & Cleanup Data
@@ -41,7 +42,28 @@ BEGIN
         PRINT 'Total Customers from ' +  @Country + ':' + CAST(@TotalCustomers AS NVARCHAR);
         PRINT 'Average Score from ' +  @Country + ':' + CAST(@AvgScore AS NVARCHAR);
 
+        -- Calculate Total Number Of Orders and Total Sales for specific Country
+
+        SELECT
+        COUNT(OrderID) TotalOrders,
+        SUM(Sales) TotalSales
+        FROM Sales.Orders o
+        JOIN Sales.Customers c
+        ON c.CustomerID = o.CustomerID 
+        WHERE Country = @Country;
+    END TRY
+    BEGIN CATCH
+        -- ==============
+        -- Error Handling
+        -- ==============
+        PRINT('An error occurred.')
+        PRINT('Error Message: ' + ERROR_MESSAGE());
+        PRINT('Error Number: ' + CAST(ERROR_NUMBER() AS NVARCHAR));
+        PRINT('Error Line: ' + CAST(ERROR_LINE() AS NVARCHAR));
+        PRINT('Error Procedure: ' + ERROR_PROCEDURE());
+    END CATCH
 END
+GO
 
 -- Step 3: Execute the Stored Procedure
 EXEC GetCustomerSummary @Country = 'Germany'
