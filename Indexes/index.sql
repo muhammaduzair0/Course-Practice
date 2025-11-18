@@ -20,3 +20,9 @@ SELECT *
 FROM Sales.DBCustomers
 WHERE FirstName  = 'Anna';
 
+-- Select Customers to Filtering With LastName
+SELECT *
+FROM Sales.DBCustomers
+WHERE LastName  = 'Brown';
+
+
