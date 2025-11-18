@@ -8,3 +8,7 @@ SELECT *
 FROM Sales.Customers
 WHERE CustomerID  = 1;
 
+-- Create Clustered Index Of CustomerID
+CREATE CLUSTERED INDEX idx_DBCustomers_CustomerID
+ON Sales.DBCustomers (CustomerID);
+
