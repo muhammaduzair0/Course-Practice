@@ -15,3 +15,8 @@ ON Sales.DBCustomers (CustomerID);
 -- Drop Clustered Index Because One Index Per Table Allowed
 DROP INDEX idx_DBCustomers_CustomerID ON Sales.DBCustomers;
 
+-- Select Customers to Filtering With FirstName
+SELECT *
+FROM Sales.DBCustomers
+WHERE FirstName  = 'Anna';
+
