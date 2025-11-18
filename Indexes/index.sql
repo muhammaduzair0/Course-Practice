@@ -26,3 +26,8 @@ FROM Sales.DBCustomers
 WHERE LastName  = 'Brown';
 
 
+-- Create Multiple Indexes As Non-Clustered
+-- Create Non-Clustered Index For LastName
+CREATE NONCLUSTERED INDEX idx_DBCustomers_LastName
+ON Sales.DBCustomers(LastName);
+
