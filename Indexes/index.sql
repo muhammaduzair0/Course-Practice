@@ -12,3 +12,6 @@ WHERE CustomerID  = 1;
 CREATE CLUSTERED INDEX idx_DBCustomers_CustomerID
 ON Sales.DBCustomers (CustomerID);
 
+-- Drop Clustered Index Because One Index Per Table Allowed
+DROP INDEX idx_DBCustomers_CustomerID ON Sales.DBCustomers;
+
