@@ -31,3 +31,6 @@ WHERE LastName  = 'Brown';
 CREATE NONCLUSTERED INDEX idx_DBCustomers_LastName
 ON Sales.DBCustomers(LastName);
 
+-- Default is Non-Clustered & -- Create Non-Clustered Index For FirstName
+CREATE INDEX idx_DBCustomers_FirstName
+ON Sales.DBCustomers(FirstName);
