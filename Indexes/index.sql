@@ -3,3 +3,8 @@ SELECT *
 INTO Sales.DBCustomers
 FROM Sales.Customers;
 
+-- SELECT Customer to Filtering With CustomerID
+SELECT *
+FROM Sales.Customers
+WHERE CustomerID  = 1;
+
