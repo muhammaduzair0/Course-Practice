@@ -11,3 +11,8 @@ FROM FactInternetSales
 CREATE CLUSTERED INDEX idx_FactInternetSales_RS_PK
 ON FactInternetSale_RS (SalesOrderNumber, SalesOrderLineNumber)
 
+-- ColumnStore
+SELECT *
+INTO FactInternetSale_CS
+FROM FactInternetSales
+
