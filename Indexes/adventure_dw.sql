@@ -4,3 +4,7 @@ SELECT *
 INTO FactInternetSale_HP
 FROM FactInternetSales
 
+SELECT *
+INTO FactInternetSale_RS
+FROM FactInternetSales
+
