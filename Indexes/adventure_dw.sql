@@ -16,3 +16,5 @@ SELECT *
 INTO FactInternetSale_CS
 FROM FactInternetSales
 
+CREATE CLUSTERED COLUMNSTORE INDEX idx_FactInternetSales_CS_PK
+ON FactInternetSale_CS
