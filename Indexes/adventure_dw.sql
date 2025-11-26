@@ -4,6 +4,7 @@ SELECT *
 INTO FactInternetSale_HP
 FROM FactInternetSales
 
+-- RowStore
 SELECT *
 INTO FactInternetSale_RS
 FROM FactInternetSales
