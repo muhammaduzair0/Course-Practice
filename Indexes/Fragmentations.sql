@@ -12,3 +12,5 @@ AND idx.index_id = s.index_id
 ORDER BY s.avg_fragmentation_in_percent DESC;
 
 
+ALTER INDEX idx_Customers_CS_Country ON Sales.Customers REORGANIZE
+ALTER INDEX idx_Customers_Country ON Sales.Customers REBUILD
