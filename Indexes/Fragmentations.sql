@@ -6,3 +6,6 @@ SELECT
 FROM sys.dm_db_index_physical_stats(DB_ID(), NULL, NULL, NULL, 'LIMITED') AS s
 INNER JOIN sys.tables tbl
 ON s.object_id = tbl.object_id
+INNER JOIN sys.indexes AS idx
+ON idx.object_id = s.object_id
+AND idx.index_id = s.index_id
