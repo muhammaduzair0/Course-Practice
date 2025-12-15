@@ -41,3 +41,13 @@ JOIN sys.partition_functions pf ON ps.function_id = pf.function_id
 JOIN sys.destination_data_spaces ds ON ps.data_space_id = ds.data_space_id
 JOIN sys.filegroups fg ON ds.data_space_id = fg.data_space_id
 
+-- Query Lists all order Partitioned
+
+SELECT
+    p.partition_number AS PartitionNumber,
+    f.name AS PartitionFileGroup,
+    p.rows AS NumberOfRows
+FROM sys.partitions p
+JOIN sys.destination_data_spaces dds ON p.partition_number = dds.destination_id
+JOIN sys.filegroups f ON dds.data_space_id = f.data_space_id
+WHERE OBJECT_NAME(p.object_id) = 'Orders_Partitioned'
