@@ -29,3 +29,15 @@ WHERE
     mf.database_id = DB_ID('SalesDB');
 
 
+-- Query lists all Partition Scheme
+
+SELECT
+    ps.name AS PartitionSchemeName,
+    pf.name AS PartitionFunctionName,
+    ds.destination_id AS PartitionNumber,
+    fg.name AS FilegroupName
+FROM sys.partition_schemes ps
+JOIN sys.partition_functions pf ON ps.function_id = pf.function_id
+JOIN sys.destination_data_spaces ds ON ps.data_space_id = ds.data_space_id
+JOIN sys.filegroups fg ON ds.data_space_id = fg.data_space_id
+
