@@ -42,3 +42,13 @@ CREATE PARTITION SCHEME SchemePartitionByYear
 AS PARTITION PartitionByYear
 TO (FG_2023, FG_2024, FG_2025, FG_2026)
 
+-- Step 5: Create the Partitioned Table
+
+CREATE TABLE Sales.Order_Partitioned
+(
+    OrderID INT,
+    OrderDate DATE,
+    Sales INT
+) ON SchemePartitionByYear (OrderDate)
+
+
