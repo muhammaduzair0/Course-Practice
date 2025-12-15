@@ -36,3 +36,9 @@ ALTER DATABASE SalesDB ADD FILE
     FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\DATA\P_2026.ndf'
 ) TO FILEGROUP FG_2026;
 
+-- Step 4: Create Partition Scheme
+
+CREATE PARTITION SCHEME SchemePartitionByYear
+AS PARTITION PartitionByYear
+TO (FG_2023, FG_2024, FG_2025, FG_2026)
+
