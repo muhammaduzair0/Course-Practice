@@ -8,3 +8,9 @@ SELECT
     boundary_value_on_right
 FROM sys.partition_functions
 
+-- Query lists all existing Filegroups
+
+SELECT *
+FROM sys.filegroups
+WHERE type = 'FG'
+
